@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,329 +15,256 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: DayThree(),
+      home: DaySix(),
     );
   }
 }
 
-class DayThree extends StatefulWidget {
-  const DayThree({Key key}) : super(key: key);
+class DaySix extends StatefulWidget {
+  const DaySix({Key key}) : super(key: key);
 
   @override
-  _DayThreeState createState() => _DayThreeState();
+  _DaySixState createState() => _DaySixState();
 }
 
-class _DayThreeState extends State<DayThree> {
+class _DaySixState extends State<DaySix> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Day 4",
-        style: TextStyle(
-          color: Colors.white,
-        ),),
+        backgroundColor: Colors.white,
+        title: Text("Day 7: Loading Svg images in flutter",
+        style: TextStyle(color: Colors.blue),),
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 20),
-              Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    // REGTANGULAR
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: TextButton(
-                        child: Text("Rectangular"),
-                        style: TextButton.styleFrom(
-                          primary: Colors.teal,
-                          shape: const BeveledRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(5),
+      body: SafeArea(
+        child: Container(
+          child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: 20),
+                Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 1.5,
+                          // color: Colors.lightBlue,
+                        ),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              " ",
+                              style: TextStyle(
+                                  color: Colors.deepPurple, fontSize: 16.0),
                             ),
                           ),
-                        ),
-                        //shape: Border.all(),
-                        onPressed: () {},
-                      ),
-                    ),
-
-                    //====================
-                    //  enable rounded corner colored shaped flat button
-                    //====================
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: TextButton(
-                        child: Text("Rounded with colour"),
-                        style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(
-                                color: Colors.deepPurple,
-                              ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: FloatingActionButton(
+                                heroTag: "tag3",
+                                backgroundColor: Colors.white,
+                                child: SvgPicture.asset("assets/icons/twitter.svg"),
+                                onPressed: () {}),
                           ),
-                        ),
-                        onPressed: () {},
+                        ],
                       ),
-                    ),
-
-                    //====================
-                    //  enable circular colored shaped TextButton
-                    //====================
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: TextButton(
-                        child: Text("Rounded with colour"),
-                        style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0),
-                              side: BorderSide(color: Colors.deepPurple),),
-                        ),
-
-                        onPressed: () {},
-                      ),
-                    ),
-
-                    //====================
-                    //    text styling  colored  TextButton 1
-                    //====================
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: TextButton(
-                        child: Text(
-                          "Text Style with Label 1",
-                          style: TextStyle(
-                              color: Colors.deepOrange,
-                              fontStyle: FontStyle.italic,
-                              fontSize: 18.0),
-                        ),
-                        style: TextButton.styleFrom(
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0),
-                              side: BorderSide(color: Colors.grey),),
-                        ),
-
-                        onPressed: () {},
-                      ),
-                    ),
-
-                    //====================
-                    //    text styling  colored  TextButton 2
-                    //====================
 
 
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: TextButton(
-                        child: Text(
-                          "Text Style with Label 2",
-                        ),
-                        style: TextButton.styleFrom(
-                          primary: Colors.deepOrange,
-                          textStyle:  TextStyle(
-                       // color: Colors.deepOrange,
-                            fontStyle: FontStyle.italic,
-                            fontSize: 18.0),
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0),
-                            side: BorderSide(color: Colors.grey),),
-                        ),
 
-                        onPressed: () {},
-                      ),
-                    ),
 
-                    //====================
-                    //    rounded rectangle fill colored  flat button
-                    //====================
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: TextButton(
-                        child: Text("filled colored rectangular"),
-                       style: TextButton.styleFrom(
-                         primary: Colors.black,
-                         backgroundColor: Colors.deepOrangeAccent,
-                         side: BorderSide(
-                           color: Colors.black,
-                         ),
-                         ),
-                        onPressed: () {},
-                      ),
-                    ),
-
-                    //ROUNDED
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: TextButton(
-                        child: Text("filled colored rounded"),
-                        style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          backgroundColor: Colors.lightGreenAccent,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0),
-                              side: BorderSide()),
-                        ),
-
-                        onPressed: () {},
-                      ),
-                    ),
-
-                    //====================
-                    //  fill colored background rectangle rounded TextButton
-                    //====================
-
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    tileMode: TileMode.repeated,
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                  Colors.deepOrange,
-                                  Colors.deepPurple,
-                                ])),
-                            child: TextButton(
-                              child: Text(
-                                "Rectangular Gradient",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {},
+                      //    Icon Floating Action Button
+                      //===============================
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              " Signin with Twitter",
+                              style: TextStyle(
+                                  color: Colors.blue, fontSize: 16.0),
                             ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: FloatingActionButton(
+                                heroTag: "tag3",
+                                backgroundColor: Colors.white,
+                                child: SvgPicture.asset("assets/icons/facebook-2.svg"),
+                                onPressed: () {}),
+                          ),
+                        ],
+                      ),
 
-                        //====================
-                        //  fill colored background rectangle rounded TextButton
-                        //====================
 
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30.0)),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                      Colors.deepOrange,
-                                      Colors.deepPurple,
-                                    ])),
-                            child: TextButton(
-                              child: Text(
-                                "Rounded Gradient",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {},
+
+
+                      //===================================
+
+
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Signin with FaceBook",
+                              style: TextStyle(
+                                  color: Colors.blue, fontSize: 16.0),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: FloatingActionButton(
+                                heroTag: "tag4",
+                                backgroundColor: Colors.white,
+                                child: SvgPicture.asset("assets/icons/github.svg"),
+                                onPressed: () {}),
+                          ),
+                        ],
+                      ),
 
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                    tileMode: TileMode.repeated,
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [
-                                      Colors.deepOrange,
-                                      Colors.deepPurple,
-                                    ])),
-                            child: TextButton(
-                              child: Text(
-                                "Rectangular Gradient",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {},
+                      //====================
+                      //    Circle Border   Floating Action Button
+                      //====================
+
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Signin with GitHub",
+                              style: TextStyle(color: Colors.blue, fontSize: 16.0),
                             ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: FloatingActionButton(
+                                heroTag: "tag5",
+                                shape: CircleBorder(
+                                    side:
+                                    BorderSide(color: Colors.deepOrangeAccent)),
+                                backgroundColor: Colors.white,
+                                child: SvgPicture.asset("assets/icons/google.svg"),
+                                onPressed: () {}),
+                          ),
+                        ],
+                      ),
 
-                        //====================
-                        //  fill colored background rectangle rounded TextButton
-                        //====================
+                      //====================
+                      //    Rounded Rectangle Border   Floating Action Button
+                      //====================
 
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.all(Radius.circular(30.0)),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Colors.deepOrange,
-                                      Colors.deepPurple,
-                                    ])),
-                            child: TextButton(
-                              child: Text(
-                                "Rounded Gradient",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {},
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Signin with Google",
+                              style: TextStyle(color: Colors.blue, fontSize: 16.0),
                             ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: FloatingActionButton(
+                                heroTag: "tag6",
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0))),
+                                backgroundColor: Colors.white,
+                                child: SvgPicture.asset("assets/icons/linkedin.svg"),
+                                onPressed: () {}),
+                          ),
+                        ],
+                      ),
 
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.all(Radius.circular(30.0)),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft,
-                                    colors: [
-                                      Colors.deepOrange,
-                                      Colors.deepPurple,
-                                    ])),
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                elevation: 15,
-                                shadowColor: Colors.deepPurple
-                              ),
-                              child: Text(
-                                "Rounded Elevated Gradient",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              onPressed: () {},
+                      //====================
+                      //    Icon Color   Floating Action Button
+                      //====================
+
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Signin with Linkedin",
+                              style: TextStyle(color: Colors.blue, fontSize: 16.0),
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: FloatingActionButton(
+                                heroTag: "tag1",
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(10.0))),
+                                backgroundColor: Colors.white,
+                                child: SvgPicture.asset("assets/icons/linkedin.svg"),
+
+                                onPressed: () {}),
+                          ),
+                        ],
+                      ),
+
+                      //====================
+                      //   Icon with Label Floating Action Button
+                      //====================
+
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Icon with Label Fab",
+                              style: TextStyle(color: Colors.red, fontSize: 16.0),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: FloatingActionButton.extended(
+                                    heroTag: "tag7",
+                                    label: Text("Add"),
+                                    backgroundColor: Colors.green,
+                                    icon: Icon(Icons.add),
+                                    onPressed: () {}),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: FloatingActionButton.extended(
+                                    heroTag: "tag2",
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(5.0)),
+                                    label: Text("Take pic"),
+                                    backgroundColor: Colors.yellow,
+                                    icon: Icon(Icons.add_a_photo),
+                                    onPressed: () {}),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 20),
-            ],
+                SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),
